@@ -1,12 +1,12 @@
 
 
-'''shell
+```shell
 %%capture
 !apt-get install poppler-utils
 ''''
 
 
-''python
+```python
 !pip install pdf2image
 from pdf2image import convert_from_path
 import requests
@@ -16,7 +16,7 @@ from skimage.io import imread
 from skimage.transform import resize
 
 
-'''python
+```python
 def plot(x):
     fig, ax = plt.subplots()
     im = ax.imshow(x, cmap = 'gray')
