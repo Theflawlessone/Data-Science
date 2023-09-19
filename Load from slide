@@ -1,13 +1,6 @@
-#Resize image
+apt-get install poppler-utils
+pip install pdf2image
 
-```shell
-%%capture
-!apt-get install poppler-utils
-''''
-
-
-```python
-!pip install pdf2image
 from pdf2image import convert_from_path
 import requests
 import matplotlib.pyplot as plt
@@ -15,8 +8,6 @@ import numpy as np
 from skimage.io import imread
 from skimage.transform import resize
 
-
-```python
 def plot(x):
     fig, ax = plt.subplots()
     im = ax.imshow(x, cmap = 'gray')
@@ -36,3 +27,14 @@ def get_slides(url):
     open('file.pdf', 'wb').write(r.content)
     images = convert_from_path('file.pdf', 500)
     return images
+
+Data_Deck = "https://docs.google.com/presentation/d/1mATs77DNphkXvP1BRh-J_wFg3ptQ-K5wyM0xJHjR4pk/edit?usp=sharing"
+
+image_list = get_slides(Data_Deck)
+
+n = len(image_list)
+
+for i in range(n):
+
+    plot(image_list[i])
+    print(np.array(image_list[i]).shape)
