@@ -38,3 +38,19 @@ for i in range(n):
 
     plot(image_list[i])
     print(np.array(image_list[i]).shape)
+
+Resizing an image:
+pip install pillow
+from PIL import Image
+
+# Open the image file
+image = Image.open('your_image.jpg')  # Replace 'your_image.jpg' with your image file's path
+
+# Define the new size (width, height)
+new_size = (300, 200)  # Adjust these values to your desired dimensions
+
+# Resize the image
+resized_image = image.resize(new_size)
+
+# Save the resized image to a file
+resized_image.save('resized_image.jpg')  # Replace 'resized_image.jpg' with your desired output file name and format
