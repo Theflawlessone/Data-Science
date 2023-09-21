@@ -83,3 +83,23 @@ plt.show()
 
 
 Matplotlib is a fundamental library for data visualization in Python, and it is often used in combination with other libraries like NumPy, SciPy, and pandas to explore and present data effectively. It has an extensive and well-documented API, making it suitable for both beginners and experienced data scientists and analysts.
+
+Random grey scale image:
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the dimensions of the image
+width, height = 256, 256
+
+# Generate random grayscale pixel values in the range [0, 255]
+random_pixels = np.random.randint(0, 256, (height, width), dtype=np.uint8)
+
+# Create a grayscale image from the random pixel values
+random_image = np.zeros((height, width), dtype=np.uint8)
+random_image[:, :] = random_pixels
+
+# Display the random grayscale image using Matplotlib
+plt.imshow(random_image, cmap='gray')
+plt.axis('off')  # Turn off axis labels and ticks
+plt.title('Random Grayscale Image')
+plt.show()
