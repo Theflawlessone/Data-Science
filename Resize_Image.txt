@@ -1,4 +1,4 @@
-Colab version
+#Colab version
 import matplotlib.pyplot as plt
 import numpy as np
 from skimage.io import imread
@@ -10,11 +10,11 @@ plt.imshow(im);
 im = resize(im,(512,512))
 plt.imshow(im);
 
-This Python code snippet demonstrates how to use the matplotlib, numpy, and scikit-image libraries to download an image from a URL, resize it, and display it using matplotlib.pyplot.
+## This Python code snippet demonstrates how to use the matplotlib, numpy, and scikit-image libraries to download an image from a URL, resize it, and display it using matplotlib.pyplot.
 
 Here is a step-by-step explanation of the code:
 
-Import the necessary libraries:
+###Import the necessary libraries:
 import matplotlib.pyplot as plt: This imports the matplotlib library under the alias plt, which is commonly used for creating plots and displaying images.
 import numpy as np: This imports the numpy library under the alias np, which is used for numerical operations and array manipulations.
 from skimage.io import imread: This imports the imread function from the skimage.io module, which is part of the scikit-image library and is used to read images.
