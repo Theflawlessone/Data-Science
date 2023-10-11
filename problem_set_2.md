@@ -18,4 +18,5 @@ The image is converted to grayscale using the skimage library, specifically the 
 
 ## Convolve with Random Filters
 The image is then convolved with 10 random n x n filters. The code uses the scipy.signal.convolve2d function for this purpose. Both the feature maps and the corresponding filters are displayed side-by-side.
+
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/6dfd9352-9b19-4252-9a21-070a704c1d88)
