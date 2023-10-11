@@ -1,7 +1,7 @@
 # Image Processing Report
 In this report, we will document the steps involved in processing an image, including resizing, grayscale conversion, and convolution with random filters. We will use the code provided and visualize the outputs at each step.
 
-You can find the code and the entire process in this Google Colab Notebook[problem_set_2.ipynb](https://colab.research.google.com/drive/17CntMWGmxQa0gnsV-BJiu1CEo9Ei_--r?usp=sharing).
+You can find the code and the entire process in this Google Colab Notebook [problem_set_2.ipynb](https://colab.research.google.com/drive/17CntMWGmxQa0gnsV-BJiu1CEo9Ei_--r?usp=sharing).
 
 ## Load RGB Image from URL
 The process begins by loading an RGB image from a given URL using the imageio library. The loaded image is displayed using matplotlib.
