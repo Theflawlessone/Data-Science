@@ -14,8 +14,8 @@ from skimage import io
 
 # Load the RGB image from the provided URL
 image_url = "https://media.istockphoto.com/id/173240099/photo/surprise-kitty-cute-black-cat-screaming.jpg?s=612x612&w=0&k=20&c=fKCBMfIQuunPUC0DQTcI25iFnBAEaCfLxZX94oajjNM="
-image = io.imread(image_url)
-
+image = io.imread(image_url)'''
+'''python'''
 
 ## Resize Image
 The loaded image is resized to a specific size (224x224x3) to prepare it for further processing. The resized image is displayed.
