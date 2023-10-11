@@ -10,13 +10,12 @@ The process begins by loading an RGB image from a given URL using the imageio li
 
 ## Resize Image
 The loaded image is resized to a specific size (224x224x3) to prepare it for further processing. The resized image is displayed.
-![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/cd2b8165-12be-4a3c-92f0-83260f7b5a2f)
+![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/bb680857-aea5-4996-bd73-91946b6a786a)
 
 ## Grayscale Image Conversion
-The image is converted to grayscale using the skimage library, specifically the color.rgb2gray function. The first channel of the image is displayed as an example of a grayscale image.
+The image is converted to grayscale using the skimage library, specifically the color.rgb2gray function. The first channel of the image is displayed as an example of a grayscale image. The size of the resulting grayscale image is checked, and it is confirmed to be 224x224.
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/ebb6a1e3-d6be-41f3-8952-45f1778b7fb3)
-The size of the resulting grayscale image is checked, and it is confirmed to be 224x224.
 
 ## Convolve with Random Filters
-![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/6dfd9352-9b19-4252-9a21-070a704c1d88)
 The image is then convolved with 10 random n x n filters. The code uses the scipy.signal.convolve2d function for this purpose. Both the feature maps and the corresponding filters are displayed side-by-side.
+![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/6dfd9352-9b19-4252-9a21-070a704c1d88)
