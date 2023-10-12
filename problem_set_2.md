@@ -8,20 +8,18 @@ The process begins by loading an RGB image from a given URL using the imageio li
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/cf5b1cf5-c68c-48f8-a4c0-db02ae118a2b)
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/480ab75f-90f5-4185-9605-9be123fabe5d)
 ### Code
-`python import numpy as np
-from skimage import io
-
-image_url = "https://media.istockphoto.com/id/173240099/photo/surprise-kitty-cute-black-cat-screaming.jpg?s=612x612&w=0&k=20&c=fKCBMfIQuunPUC0DQTcI25iFnBAEaCfLxZX94oajjNM="
-image = io.imread(image_url)`
+``python image_url = "https://media.istockphoto.com/id/173240099/photo/surprise-kitty-cute-black-cat-screaming.jpg?s=612x612&w=0&k=20&c=fKCBMfIQuunPUC0DQTcI25iFnBAEaCfLxZX94oajjNM="
+image = io.imread(image_url)``
 
 ## Resize Image
 The loaded image is resized to a specific size (224x224x3) to prepare it for further processing. The resized image is displayed.
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/bb680857-aea5-4996-bd73-91946b6a786a)
 ### Code
-`python plt.imshow(image)
-plt.title("Resized Image (224x224)")
-plt.axis("off")
-plt.show()`
+``python response = requests.get(image_url)
+image = Image.open(BytesIO(response.content))
+new_size = (224, 224)
+resized_image = image.resize(new_size)
+plot(resized_image``
 
 ## Grayscale Image Conversion
 The image is converted to grayscale using the skimage library, specifically the color.rgb2gray function. The first channel of the image is displayed as an example of a grayscale image. The size of the resulting grayscale image is checked, and it is confirmed to be 224x224.
