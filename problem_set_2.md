@@ -1,32 +1,30 @@
 # Problem Set Two 
 In this report, we will document the steps involved in processing an image, including resizing, grayscale conversion, and convolution with random filters. We will use the code provided and visualize the outputs at each step.
 
-You can find the code and the entire process in this Google Colab Notebook [problem_set_2.ipynb](https://colab.research.google.com/drive/17CntMWGmxQa0gnsV-BJiu1CEo9Ei_--r?usp=sharing).
+You can find the code and the entire process in this Google Colab Notebook [problem_set_2.ipynb](https://colab.research.google.com/drive/15XaUw0xPjNifa0bSiKIuTS3C53Xv_vKB?usp=sharing).
 
 ## Load RGB Image from URL
 The process begins by loading an RGB image from a given URL using the imageio library. The loaded image is displayed using matplotlib.
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/cf5b1cf5-c68c-48f8-a4c0-db02ae118a2b)
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/480ab75f-90f5-4185-9605-9be123fabe5d)
 ### Code
-``python image_url = "https://media.istockphoto.com/id/173240099/photo/surprise-kitty-cute-black-cat-screaming.jpg?s=612x612&w=0&k=20&c=fKCBMfIQuunPUC0DQTcI25iFnBAEaCfLxZX94oajjNM="
-image = io.imread(image_url)``
+``python plt.figure(figsize=(6, 6))
+plt.imshow(image)
+plt.title("Loaded Image")
+plt.show()``
 
 ## Resize Image
 The loaded image is resized to a specific size (224x224x3) to prepare it for further processing. The resized image is displayed.
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/bb680857-aea5-4996-bd73-91946b6a786a)
 ### Code
-``python response = requests.get(image_url)
-image = Image.open(BytesIO(response.content))
-new_size = (224, 224)
-resized_image = image.resize(new_size)
-plot(resized_image``
+``python new_size = (224, 224)
+resized_image = image.resize(new_size)``
 
 ## Grayscale Image Conversion
 The image is converted to grayscale using the skimage library, specifically the color.rgb2gray function. The first channel of the image is displayed as an example of a grayscale image. The size of the resulting grayscale image is checked, and it is confirmed to be 224x224.
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/ebb6a1e3-d6be-41f3-8952-45f1778b7fb3)
 ### Code
-``python plt.imshow(first_channel, cmap="gray")
-plt.title("First Channel (Red, for example)")
+``python plt.imshow(grayscale_image, cmap='gray')
 plt.axis("off")
 plt.show()``
 
