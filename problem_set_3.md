@@ -2,7 +2,7 @@
 This report aims to visualize the features learned by a convolutional layer in a CNN, specifically the AlexNet model. We will select an image from the dataset, analyze the feature maps produced by applying convolutional filters to it, and discuss the process of loading a pretrained model, finetuning it, and visualizing the results.
 ## Data Loading and Visualization
 First, we download the Flowers 102 dataset and perform necessary preprocessing, including loading the dataset labels and extracting the images.
-``python import matplotlib.pyplot as plt
+```python import matplotlib.pyplot as plt
 
 # Define a function for plotting images
 def plot(x, title=None):
@@ -12,7 +12,6 @@ def plot(x, title=None):
     if x_np.shape[2] == 1:
         x_np = x_np.squeeze(2)
     x_np = x_np.clip(0, 1)
-
     fig, ax = plt.subplots()
     if len(x_np.shape) == 2:
         im = ax.imshow(x_np, cmap='gray')
@@ -62,7 +61,7 @@ plot(images[i], dataset_labels[i]
 We randomly select random images from the dataset and display it along with its corresponding label.
 python i = 50
 plot(images[i],dataset_labels[i]);
-
+```
 ![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/7d6949de-b242-414d-b5d8-421852b47f03)
 
 
