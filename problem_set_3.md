@@ -69,7 +69,39 @@ plot(images[i],dataset_labels[i]);`
 
 ## Pretrained Model Loading
 We load the pre-trained AlexNet model, which includes pre-trained weights. We then run the model on a batch of data from the Flowers 102 dataset. The model's predicted classes are shown along with the images.
- 
+```python import torch
+from torchvision import models, transforms
+import requests
+from PIL import Image
+import torch.nn.functional as F
+import matplotlib.pyplot as plt
+
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+
+# Define alexnet model
+alexnet = models.alexnet(pretrained=True).to(device)
+labels = {int(key): value for (key, value) in requests.get('https://s3.amazonaws.com/mlpipes/pytorch-quick-start/labels.json').json().items()}
+
+# Transform image for use in the model
+preprocess = transforms.Compose([
+   transforms.Resize(256),
+   transforms.CenterCrop(224),
+   transforms.ToTensor(),
+   transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
+])
+
+# Select an image
+img = images[i]
+
+from torchvision.transforms import ToPILImage
+to_pil = ToPILImage()
+img = to_pil(img) 
+
+img_t = preprocess(img).unsqueeze_(0).to(device)
+
+# Classify the image with alexnet
+scores, class_idx = alexnet(img_t).max(1)
+print('Predicted class:', labels[class_idx.item()])```
 
 ## Finetuning
 In the process of finetuning, we replace the last layer of the AlexNet with a new final layer that has the appropriate number of outputs to match the Flowers 102 dataset. The network is then trained on the Flowers 102 dataset to achieve accuracy.
