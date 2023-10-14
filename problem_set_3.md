@@ -8,6 +8,19 @@ First, we download the Flowers 102 dataset and perform necessary preprocessing, 
 !wget https://s3.amazonaws.com/content.udacity-data.com/courses/nd188/flower_data.zip
 !unzip 'flower_data.zip'`
 
-We randomly select an image from the dataset (e.g., at index 50) and display it along with its corresponding label.
+We randomly select random images from the dataset and display it along with its corresponding label.
 `python i = 50
 plot(images[i],dataset_labels[i]);`
+![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/7d6949de-b242-414d-b5d8-421852b47f03)
+
+## Pretrained Model Loading
+We load the pre-trained AlexNet model, which includes pre-trained weights. We then run the model on a batch of data from the Flowers 102 dataset. The model's predicted classes are shown along with the images.
+``python 
+
+## Finetuning
+In the process of finetuning, we replace the last layer of the AlexNet with a new final layer that has the appropriate number of outputs to match the Flowers 102 dataset. The network is then trained on the Flowers 102 dataset to achieve accuracy.
+``python
+
+## Results Visualization
+We calculate the accuracy on both the training and validation data. Additionally, we show a sample of images with their true labels and the predicted labels.
+``python
