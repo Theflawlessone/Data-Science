@@ -100,7 +100,8 @@ img_t = preprocess(img).unsqueeze_(0).to(device)
 
 # Classify the image with alexnet
 scores, class_idx = alexnet(img_t).max(1)
-print('Predicted class:', labels[class_idx.item()])```
+print('Predicted class:', labels[class_idx.item()])
+```
 
 ## Finetuning
 In the process of finetuning, we replace the last layer of the AlexNet with a new final layer that has the appropriate number of outputs to match the Flowers 102 dataset. The network is then trained on the Flowers 102 dataset to achieve accuracy.
