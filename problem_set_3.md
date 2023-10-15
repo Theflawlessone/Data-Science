@@ -1,5 +1,5 @@
 # Report on Convolutional Neural Network Feature Visualization
-This report aims to visualize the features learned by a convolutional layer in a CNN, specifically the AlexNet model. We will select an image from the dataset, analyze the feature maps produced by applying convolutional filters to it, and discuss the process of loading a pretrained model, finetuning it, and visualizing the results.
+This report aims to visualize the features learned by a convolutional layer in a CNN, specifically the AlexNet model. We will select an image from the dataset, analyze the feature maps produced by applying convolutional filters to it, and discuss the process of loading a pretrained model, finetuning it, and visualizing the results. You can find the colab notebook here [Notebook](https://colab.research.google.com/drive/1u-QR5Ih554kIgFYQv0po_2tTh1iNs_7v?usp=sharing)
 ## Data Loading and Visualization
 First, we download the Flowers 102 dataset and perform necessary preprocessing, including loading the dataset labels and extracting the images.
 ```python
