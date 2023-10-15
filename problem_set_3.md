@@ -2,8 +2,8 @@
 This report aims to visualize the features learned by a convolutional layer in a CNN, specifically the AlexNet model. We will select an image from the dataset, analyze the feature maps produced by applying convolutional filters to it, and discuss the process of loading a pretrained model, finetuning it, and visualizing the results.
 ## Data Loading and Visualization
 First, we download the Flowers 102 dataset and perform necessary preprocessing, including loading the dataset labels and extracting the images.
-```python import matplotlib.pyplot as plt
-
+```python
+import matplotlib.pyplot as plt
 # Define a function for plotting images
 def plot(x, title=None):
     x_np = x.cpu().numpy()
@@ -68,7 +68,8 @@ plot(images[i],dataset_labels[i]);
 
 ## Pretrained Model Loading
 We load the pre-trained AlexNet model, which includes pre-trained weights. We then run the model on a batch of data from the Flowers 102 dataset. The model's predicted classes are shown along with the images.
-```python import torch
+```python
+import torch
 from torchvision import models, transforms
 import requests
 from PIL import Image
@@ -105,7 +106,36 @@ print('Predicted class:', labels[class_idx.item()])
 
 ## Finetuning
 In the process of finetuning, we replace the last layer of the AlexNet with a new final layer that has the appropriate number of outputs to match the Flowers 102 dataset. The network is then trained on the Flowers 102 dataset to achieve accuracy.
-
+```python
+# Modify the final fully connected layer
+w0 = alexnet.features[0].weight.data
+w1 = alexnet.features[3].weight.data
+w2 = alexnet.features[6].weight.data
+w3 = alexnet.features[8].weight.data
+w4 = alexnet.features[10].weight.data
+w5 = alexnet.classifier[1].weight.data
+w6 = alexnet.classifier[4].weight.data
+w7 = alexnet.classifier[6].weight.data
+# Save and Load
+# w = [w0,w1,w2,w3,w4,w5,w6,w7]
+# torch.save(w, 'Hahn_Alex.pt')
+# w = torch.load('Hahn_Alex.pt')
+# [w0,w1,w2,w3,w4,w5,w6,w7] = w
+# [w0,w1,w2,w3,w4,w5,w6,w7] = torch.load('Hahn_Alex.pt')
+```
+![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/43d9d188-67aa-47b8-8c24-cb22bb71d243)
 
 ## Results Visualization
 We calculate the accuracy on both the training and validation data. Additionally, we show a sample of images with their true labels and the predicted labels.
+```python
+# Extract feature maps using F.conv2d
+f0 = F.conv2d(img_t, w0, stride=4, padding=2)
+# Visualize filters
+for i in range(64):
+    tensor_plot(w0, i)
+    plt.imshow(f0[0, i, :, :].cpu().numpy())
+    plt.show()
+# Visualize feature maps with filters
+plot_feature_maps_with_filters(f0, w0)
+```
+![image](https://github.com/Theflawlessone/Data-Science/assets/142954344/de744ae7-8144-40f3-bf75-32cd4742534f)
